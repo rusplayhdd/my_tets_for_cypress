@@ -6,7 +6,12 @@ jobs:
         steps:
             - name: code the code
               uses: actions/checkout@v4
-            - name: deps inst
+            - name: use the cahe
+              uses: actions/cache@v3 
+              with:
+                path: ~/.npm
+                key: cypressCache${{ hashFiles('**/package_lock.json') }} 
+            - name: deps
               run: npm ci 
             - name: cyp run
               uses: cypress-io/github-action@v6
