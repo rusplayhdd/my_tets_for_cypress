@@ -1,0 +1,12 @@
+name: cypress_run
+on: workflow_dispatch
+jobs:
+    cyp-run:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code the code
+              uses: actions/checkout@v3
+            - name: deps inst
+              run: npm ci 
+            - name: cyp run
+              uses: actions/checkout@v3
