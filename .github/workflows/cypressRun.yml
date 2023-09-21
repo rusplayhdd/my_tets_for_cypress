@@ -5,12 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: code the code
-              uses: actions/checkout@v4
-            - name: use the cahe
-              uses: actions/cache@v3 
-              with:
-                path: ~/.npm
-                key: cypressCache-${{ hashFiles('**/package_lock.json') }} 
+              uses: actions/checkout@v4 
             - name: deps
               run: npm ci 
             - name: cyp run
