@@ -5,8 +5,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: code the code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: deps inst
               run: npm ci 
             - name: cyp run
-              uses: actions/checkout@v3
+              uses: cypress-io/github-action@v6
