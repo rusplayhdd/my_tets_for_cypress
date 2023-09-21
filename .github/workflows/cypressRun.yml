@@ -10,3 +10,6 @@ jobs:
               run: npm ci 
             - name: cyp run
               uses: actions/checkout@v3
+              with:
+                  build: npm run build
+                  start: npm start
