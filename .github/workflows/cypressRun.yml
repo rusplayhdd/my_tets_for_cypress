@@ -2,16 +2,21 @@ name: cypress_run
 on: workflow_dispatch
 jobs:
     cyp-run:
-        runs-on: ubuntu-latest
-        steps:
-            - name: code the code
-              uses: actions/checkout@v4
-            - name: use the cahe
-              uses: actions/cache@v3 
-              with:
-                path: ~/.npm
-                key: cypressCache${{ hashFiles('**/package_lock.json') }} 
-            - name: deps
-              run: npm ci 
-            - name: cyp run
-              uses: cypress-io/github-action@v6
+      strategy:
+        matrix:
+          br: [chrome, firefox, edge]          
+      runs-on: ubuntu-latest
+      steps:
+          - name: code the code
+            uses: actions/checkout@v4
+          - name: use the cahe
+            uses: actions/cache@v3 
+            with:
+              path: ~/.npm
+              key: cypressCache${{ hashFiles('**/package_lock.json') }} 
+          - name: deps
+            run: npm ci 
+          - name: cyp run
+            uses: cypress-io/github-action@v6.3.0
+            with: 
+              browser: ${{ matrix.br }}
