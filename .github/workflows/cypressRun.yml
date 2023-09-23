@@ -1,5 +1,5 @@
 name: cypress_run
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 jobs:
     cyp-run:
       strategy:
