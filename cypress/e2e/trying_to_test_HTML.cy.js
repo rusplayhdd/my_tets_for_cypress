@@ -13,12 +13,22 @@ describe("testing inside tag", () => {
 
         cy.get(".photo-input__photo-plus").should("have.attr", "class")
             .and("equal", "photo-input__photo photo-input__photo-plus toHide");
-    });
 
+    });
     it('check all the atrr in one TAG', () => {
+
         cy.visit("https://postcard.qa.studio/").contains("Форма отправки открытки");
 
+        cy.get("input[type='email']").should("have.attr", "type", "email")
+            .and("have.attr", "placeholder", "hello@qa.studio")
+            .and("have.attr", "name", "email")
+            .and("have.attr", "id", "email");
+        
+        cy.get("input[type='email']").type("nikolaenko.rus@mail.ru");
+        cy.get("#send").contains("Отправить");
+        cy.get("#send").click();
 
+        cy.get(".requered.toHide.error").should("have.class", "requered toHide error")
 
     });
 })
