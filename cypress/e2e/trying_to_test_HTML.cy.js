@@ -14,6 +14,14 @@ describe("testing inside tag", () => {
         cy.get(".photo-input__photo-plus").should("have.attr", "class")
             .and("equal", "photo-input__photo photo-input__photo-plus toHide");
 
+        // cy.get("input[type='email']").type("nikolaenko.rus@mail.ru");
+        // cy.get('.photo-input__photo-parent:last-child').click();
+        // cy.get('#send').click();
+
+        cy.get("[type='file']").should("be.not.visible");
+        cy.get(".modal>h3").should("not.be.visible");
+
+
     });
     it('check all the atrr in one TAG', () => {
 
