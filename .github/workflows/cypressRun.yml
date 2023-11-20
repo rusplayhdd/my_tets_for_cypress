@@ -20,3 +20,7 @@ jobs:
             uses: cypress-io/github-action@v6.3.0
             with: 
               browser: ${{ matrix.br }}
+              record: true
+            env: 
+              CYPRESS_RECORD_KEY: ${{ secrets.CYP_REC_KEY }}
+              GITHUB_TOKKEN: ${{ secrets.TOKKEN }}

@@ -19,6 +19,8 @@ describe("testing inside tag", () => {
         // cy.get('#send').click();
 
         cy.get("[type='file']").should("be.not.visible");
+        cy.get("[type='file']").selectFile("cypress/img/OIP.jpg", {force: true});
+        cy.get("div.photo-input__photo-parent:last-child").click();
         cy.get(".modal>h3").should("not.be.visible");
 
 
